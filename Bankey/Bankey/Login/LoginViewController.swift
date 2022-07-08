@@ -20,14 +20,16 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func style() {
-        loginView.translatesAutoresizingMaskIntoConstraints = false
+        loginView.translatesAutoresizingMaskIntoConstraints = false // <- nunca esquecer.
     }
     
     private func layout() {
         view.addSubview(loginView)
         
-        NSLayoutConstraint.activate([
-        
+        NSLayoutConstraint.activate([ // <- Isso define isActive como true para todas as constraints.
+            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
         ])
     }
 }
