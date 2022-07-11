@@ -53,7 +53,7 @@ extension LoginView {
         dividerView.translatesAutoresizingMaskIntoConstraints = false
         dividerView.backgroundColor = .secondarySystemFill
         
-        layer.cornerRadius = 6
+        layer.cornerRadius = 5
         clipsToBounds = true
     }
     
