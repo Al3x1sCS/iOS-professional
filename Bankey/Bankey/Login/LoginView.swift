@@ -50,6 +50,7 @@ extension LoginView {
         passwordTextField.isSecureTextEntry = true
         passwordTextField.delegate = self
         
+        
         dividerView.translatesAutoresizingMaskIntoConstraints = false
         dividerView.backgroundColor = .secondarySystemFill
         
@@ -61,6 +62,7 @@ extension LoginView {
         stackView.addArrangedSubview(usernameTextField)
         stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextField)
+        
         
         addSubview(stackView) // // <- nunca esquecer.
         
