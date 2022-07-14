@@ -14,6 +14,13 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
+    
+    var username: String? {
+        return loginView.usernameTextField.text
+    }
+    var password: String? {
+        return loginView.passwordTextField.text
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,5 +108,29 @@ extension LoginViewController {
 extension LoginViewController {
     @objc func signInTapped(sender: UIButton) { // <- Logica por tras do botão.
         errorMessageLabel.isHidden = true
+        login()
+    }
+    
+    private func login() {
+        guard let username = username, let password = password else {
+            assertionFailure("Usuário / Senha nunca pode ser nulos")
+            return
+        }
+        
+        if username.isEmpty || password.isEmpty {
+            configureView(withMessage: "Usuário / Senha nao podem estar em branco")
+            return
+        }
+        
+        if username == "Alexis" && password == "123456" {
+            signInButton.configuration?.showsActivityIndicator = true
+        } else {
+            configureView(withMessage: "Usuário ou senha incorreta")
+        }
+    }
+    
+    private func configureView(withMessage message: String) {
+        errorMessageLabel.isHidden = false
+        errorMessageLabel.text = message
     }
 }

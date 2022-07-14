@@ -23,7 +23,7 @@ class LoginView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) não foi implementado.")
+        fatalError("init(coder:) não foi implementado")
     }
 //    override var intrinsicContentSize: CGSize { // <- Este metodo não e mais preciso pois ja foi especificado no stack.
 //        return CGSize(width: 200, height: 200)
@@ -87,11 +87,7 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool { // <- Call Back
-        if textField.text != "" {
-            return true
-        } else {
-            return false
-        }
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
