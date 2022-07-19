@@ -9,6 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    let delorianLabel = UILabel()
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     let loginView = LoginView()
@@ -69,8 +70,9 @@ extension LoginViewController {
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
+        
         // Title
-        NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate([ // <- Isso define isActive como true para todas as constraints.
             subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
@@ -83,7 +85,7 @@ extension LoginViewController {
         ])
         
         // LoginView
-        NSLayoutConstraint.activate([ // <- Isso define isActive como true para todas as constraints.
+        NSLayoutConstraint.activate([
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
