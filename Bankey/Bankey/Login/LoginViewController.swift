@@ -7,14 +7,21 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+}
+
 class LoginViewController: UIViewController {
-    
+    // Onboarding
     let delorianLabel = UILabel()
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
+    // Login
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     var username: String? {
         return loginView.usernameTextField.text
@@ -32,7 +39,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     
-    // MARK: STYLE
+    // MARK: - STYLE
     private func style() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .center
@@ -62,7 +69,7 @@ extension LoginViewController {
         errorMessageLabel.isHidden = true
     }
     
-    // MARK: LAYOUT
+    // MARK: - LAYOUT
     private func layout() {
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
@@ -119,13 +126,14 @@ extension LoginViewController {
             return
         }
         
-        if username.isEmpty || password.isEmpty {
-            configureView(withMessage: "Usuário / Senha nao podem estar em branco")
-            return
-        }
+//        if username.isEmpty || password.isEmpty {
+//            configureView(withMessage: "Usuário / Senha nao podem estar em branco")
+//            return
+//        }
         
-        if username == "Alexis" && password == "123456" {
+        if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin()
         } else {
             configureView(withMessage: "Usuário ou senha incorreta")
         }
