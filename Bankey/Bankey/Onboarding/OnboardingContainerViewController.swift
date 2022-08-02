@@ -24,10 +24,11 @@ class OnboardingContainerViewController: UIViewController {
             guard let index = pages.firstIndex(of: currentVC) else { return }
             nextButton.isHidden = index == pages.count - 1
             backButton.isHidden = index == 0
-            doneButton.isHidden = !(index == pages.count - 1)
+            doneButton.isHidden = index != pages.count - 1
             
         }
     }
+    
     let nextButton = UIButton(type: .system)
     let backButton = UIButton(type: .system)
     let closeButton = UIButton(type: .system)
@@ -40,9 +41,9 @@ class OnboardingContainerViewController: UIViewController {
         let page2 = OnboardingViewController(heroImageName: "world", titleText: "Mova seu dinheiro pelo mundo com rapidez e segurança.")
         let page3 = OnboardingViewController(heroImageName: "thumbs", titleText: "Saiba mais em www.bankey.com.")
         
-        pages.append(page1)
-        pages.append(page2)
-        pages.append(page3)
+        self.pages.append(page1)
+        self.pages.append(page2)
+        self.pages.append(page3)
         
         currentVC = pages.first!
         
@@ -147,13 +148,13 @@ extension OnboardingContainerViewController: UIPageViewControllerDataSource {
 
     private func getPreviousViewController(from viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController), index - 1 >= 0 else { return nil }
-        self.currentVC = pages[index - 1]
+        currentVC = pages[index - 1]
         return pages[index - 1]
     }
 
     private func getNextViewController(from viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController), index + 1 < pages.count else { return nil }
-        self.currentVC = pages[index + 1]
+        currentVC = pages[index + 1]
         return pages[index + 1]
     }
 
