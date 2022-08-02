@@ -41,9 +41,9 @@ class OnboardingContainerViewController: UIViewController {
         let page2 = OnboardingViewController(heroImageName: "world", titleText: "Mova seu dinheiro pelo mundo com rapidez e segurança.")
         let page3 = OnboardingViewController(heroImageName: "thumbs", titleText: "Saiba mais em www.bankey.com.")
         
-        self.pages.append(page1)
-        self.pages.append(page2)
-        self.pages.append(page3)
+        pages.append(page1)
+        pages.append(page2)
+        pages.append(page3)
         
         currentVC = pages.first!
         
@@ -148,13 +148,13 @@ extension OnboardingContainerViewController: UIPageViewControllerDataSource {
 
     private func getPreviousViewController(from viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController), index - 1 >= 0 else { return nil }
-        currentVC = pages[index - 1]
+        self.currentVC = pages[index - 1]
         return pages[index - 1]
     }
 
     private func getNextViewController(from viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController), index + 1 < pages.count else { return nil }
-        currentVC = pages[index + 1]
+        self.currentVC = pages[index + 1]
         return pages[index + 1]
     }
 
