@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController.delegate = self
         onboardingContainerViewController.delegate = self
         
-//        window?.rootViewController = loginViewController
-        window?.rootViewController = onboardingContainerViewController
+        window?.rootViewController = loginViewController
+//        window?.rootViewController = onboardingContainerViewController
 //        window?.rootViewController = OnboardingViewController(heroImageName: "delorean", titleText: "Bankey é mais rápido, mais fácil de usar e tem uma aparência totalmente inovadora que fará você se sentir como se estivesse de volta a 1989.")
         
         
@@ -35,12 +35,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didLogin() {
-        print("foo - Did login")
+        setRootViewController(onboardingContainerViewController)
     }
 }
 
 extension AppDelegate: LoginViewControllerDelegate {
     func didFinishOnboarding() {
         print("foo - Did onboard")
+    }
+}
+
+extension AppDelegate {
+    func setRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard animated, let window = self.window else {
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+            return
+        }
+
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        UIView.transition(with: window,
+                          duration: 0.7,
+                          options: .transitionCrossDissolve,
+                          animations: nil,
+                          completion: nil)
     }
 }
