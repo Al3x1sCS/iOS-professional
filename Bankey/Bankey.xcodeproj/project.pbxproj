@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE385EAB28A1E659003ADF9D /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE385EAA28A1E659003ADF9D /* LocalState.swift */; };
 		CE3C2F272886F47000D39546 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C2F262886F47000D39546 /* OnboardingViewController.swift */; };
 		CE465F252886580800970D5A /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE465F242886580800970D5A /* OnboardingContainerViewController.swift */; };
 		CEDD6AF028776BC90002386E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD6AEF28776BC90002386E /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE385EAA28A1E659003ADF9D /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		CE3C2F262886F47000D39546 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CE465F242886580800970D5A /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		CEDD6AEC28776BC90002386E /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE385EA928A1E63C003ADF9D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE385EAA28A1E659003ADF9D /* LocalState.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		CE465F23288656BC00970D5A /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 				CE465F23288656BC00970D5A /* Onboarding */,
 				CEDD6B05287781C90002386E /* Login */,
 				CEDD6AEF28776BC90002386E /* AppDelegate.swift */,
+				CE385EA928A1E63C003ADF9D /* Utils */,
 				CEDD6B04287781AE0002386E /* Files */,
 			);
 			path = Bankey;
@@ -168,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDD6B07287782270002386E /* LoginView.swift in Sources */,
+				CE385EAB28A1E659003ADF9D /* LocalState.swift in Sources */,
 				CEE3C91328997F05004ECD85 /* DummyViewController.swift in Sources */,
 				CEDD6AF428776BC90002386E /* LoginViewController.swift in Sources */,
 				CE3C2F272886F47000D39546 /* OnboardingViewController.swift in Sources */,
