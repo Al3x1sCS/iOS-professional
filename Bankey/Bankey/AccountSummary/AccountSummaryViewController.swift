@@ -9,36 +9,55 @@ import UIKit
 
 class AccountSummaryViewController: UIViewController {
     
-    let stackView = UIStackView()
-    let label = UILabel()
+    let games = [
+        "Pacman",
+        "Space Invaders",
+        "Space Patrol",
+    ]
+    
+    var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
-        layout()
+        setup()
     }
 }
 
 extension AccountSummaryViewController {
-    func style() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Dummy"
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
+    private func setup() {
+        setupTableView()
     }
     
-    func layout() {
-        stackView.addArrangedSubview(label)
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        view.addSubview(stackView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
 
+extension AccountSummaryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = games[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return games.count
+    }
+}
+
+extension AccountSummaryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
