@@ -23,7 +23,7 @@ class MainViewController: UITabBarController {
 
         summaryVC.setTabBarImage(imageName: "list.dash.header.rectangle", title: "Sumário")
         moneyVC.setTabBarImage(imageName: "arrow.left.arrow.right", title: "Mover $$")
-        moreVC.setTabBarImage(imageName: "ellipsis.square", title: "Mais")
+        moreVC.setTabBarImage(imageName: "ellipsis.circle", title: "Mais")
 
         let summaryNC = UINavigationController(rootViewController: summaryVC)
         let moneyNC = UINavigationController(rootViewController: moneyVC)
@@ -49,12 +49,6 @@ class MainViewController: UITabBarController {
         tabBar.isTranslucent = false
     }
 }
-
-//class AccountSummaryViewController: UIViewController {
-//    override func viewDidLoad() {
-//        view.backgroundColor = .systemGreen
-//    }
-//}
 
 class MoveMoneyViewController: UIViewController {
     override func viewDidLoad() {
