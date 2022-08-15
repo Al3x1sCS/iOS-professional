@@ -50,8 +50,8 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3Ya-ng-GZp">
-                            <rect key="frame" x="238" y="-0.5" width="100" height="100.5"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet.rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3Ya-ng-GZp">
+                            <rect key="frame" x="238" y="1" width="100" height="97.5"/>
                             <color key="tintColor" systemColor="systemYellowColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="Jup-wF-OO9"/>
@@ -74,7 +74,7 @@
         </view>
     </objects>
     <resources>
-        <image name="sun.max.fill" catalog="system" width="128" height="124"/>
+        <image name="list.bullet.rectangle.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

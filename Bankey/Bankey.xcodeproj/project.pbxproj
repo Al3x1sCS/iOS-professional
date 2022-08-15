@@ -15,6 +15,7 @@
 		CE385EAB28A1E659003ADF9D /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE385EAA28A1E659003ADF9D /* LocalState.swift */; };
 		CE3C2F272886F47000D39546 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3C2F262886F47000D39546 /* OnboardingViewController.swift */; };
 		CE465F252886580800970D5A /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE465F242886580800970D5A /* OnboardingContainerViewController.swift */; };
+		CE584AB428AAD44300627DD0 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE584AB328AAD44300627DD0 /* AccountSummaryCell.swift */; };
 		CEDD6AF028776BC90002386E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD6AEF28776BC90002386E /* AppDelegate.swift */; };
 		CEDD6AF428776BC90002386E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD6AF328776BC90002386E /* LoginViewController.swift */; };
 		CEDD6AF928776BCB0002386E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDD6AF828776BCB0002386E /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		CE385EAA28A1E659003ADF9D /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		CE3C2F262886F47000D39546 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CE465F242886580800970D5A /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
+		CE584AB328AAD44300627DD0 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		CEDD6AEC28776BC90002386E /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDD6AEF28776BC90002386E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDD6AF328776BC90002386E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -57,8 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				CE1C1D1628A6943B004AC05B /* AccountSummaryViewController.swift */,
-				CE1C1D1828A6A494004AC05B /* AccountSummaryHeaderView.swift */,
-				CE1C1D1A28A6A4F3004AC05B /* AccountSummaryHeaderView.xib */,
+				CE584AB128AAD3AA00627DD0 /* Header */,
+				CE584AB228AAD3E700627DD0 /* Cells */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -79,6 +81,23 @@
 				CE3C2F262886F47000D39546 /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		CE584AB128AAD3AA00627DD0 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				CE1C1D1828A6A494004AC05B /* AccountSummaryHeaderView.swift */,
+				CE1C1D1A28A6A4F3004AC05B /* AccountSummaryHeaderView.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		CE584AB228AAD3E700627DD0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE584AB328AAD44300627DD0 /* AccountSummaryCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CEDD6AE328776BC90002386E = {
@@ -208,6 +227,7 @@
 				CE1C1D1928A6A494004AC05B /* AccountSummaryHeaderView.swift in Sources */,
 				CEE3C91328997F05004ECD85 /* DummyViewController.swift in Sources */,
 				CEDD6AF428776BC90002386E /* LoginViewController.swift in Sources */,
+				CE584AB428AAD44300627DD0 /* AccountSummaryCell.swift in Sources */,
 				CE3C2F272886F47000D39546 /* OnboardingViewController.swift in Sources */,
 				CE2F5A0228A58C4900116A4F /* MainViewController.swift in Sources */,
 				CE1C1D1728A6943B004AC05B /* AccountSummaryViewController.swift in Sources */,

@@ -20,9 +20,9 @@ class MainViewController: UITabBarController {
         let moneyVC = MoveMoneyViewController()
         let moreVC = MoreViewController()
         
-
-        summaryVC.setTabBarImage(imageName: "list.dash.header.rectangle", title: "Sumário")
-        moneyVC.setTabBarImage(imageName: "arrow.left.arrow.right", title: "Mover $$")
+        // list.bullet.rectangle.fill
+        summaryVC.setTabBarImage(imageName: "list.bullet.rectangle", title: "Sumário")
+        moneyVC.setTabBarImage(imageName: "repeat", title: "Mover Dinheiro")
         moreVC.setTabBarImage(imageName: "ellipsis.circle", title: "Mais")
 
         let summaryNC = UINavigationController(rootViewController: summaryVC)
