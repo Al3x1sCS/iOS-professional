@@ -7,7 +7,11 @@
 
 import UIKit
 
-let appColor: UIColor = .systemPurple
+let appColor: UIColor = UIColor(red:150.0/255.0, green:66.0/255.0, blue:255/255.0, alpha: 1)
+let appColor2: UIColor = UIColor(red:0, green:128.0/255.0, blue:150.0/255.0, alpha: 1)
+let appColor3: UIColor = UIColor(red:0, green:159.0/255.0, blue:184.0/255.0, alpha: 1)
+let appColor4: UIColor = UIColor(red:120.0/255.0, green:36.0/255.0, blue:225.0/255.0, alpha: 1)
+let appColor5: UIColor = UIColor(red:94.0/255.0, green:0/255.0, blue:203.0/255.0, alpha: 1)
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,8 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = mainViewController
 //        window?.rootViewController = AccountSummaryViewController()
+//        window?.rootViewController = OnboardingContainerViewController()
+//        window?.rootViewController = loginViewController
         
         mainViewController.selectedIndex = 1
+        
         
         return true
     }

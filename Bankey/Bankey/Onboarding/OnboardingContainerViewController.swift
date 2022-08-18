@@ -63,7 +63,7 @@ class OnboardingContainerViewController: UIViewController {
     }
     
     private func setup() {
-        view.backgroundColor = .systemPurple
+        view.backgroundColor = appColor
         
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
@@ -86,18 +86,22 @@ class OnboardingContainerViewController: UIViewController {
     private func style() {
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.setTitle("Próximo", for: [])
+        nextButton.tintColor = appColor2
         nextButton.addTarget(self, action: #selector(nextTapped), for: .primaryActionTriggered)
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.setTitle("Voltar", for: [])
+        backButton.tintColor = appColor2
         backButton.addTarget(self, action: #selector(backTapped), for: .primaryActionTriggered)
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.setTitle("Fechar", for: [])
+        closeButton.tintColor = appColor2
         closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
         
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.setTitle("Concluir", for: [])
+        doneButton.tintColor = appColor2
         doneButton.addTarget(self, action: #selector(doneTapped), for: .primaryActionTriggered)
 
     }
