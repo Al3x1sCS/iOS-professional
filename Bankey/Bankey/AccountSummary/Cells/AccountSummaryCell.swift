@@ -12,7 +12,7 @@ class AccountSummaryCell: UITableViewCell {
     
     enum AccountType: String {
         case Banco
-        case CreditCard
+        case Credito
         case Investimento
     }
     
@@ -141,13 +141,13 @@ extension AccountSummaryCell {
         
         switch vm.accountType {
         case .Banco:
-            underlineView.backgroundColor = .systemTeal
+            underlineView.backgroundColor = appColor3
             balanceLabel.text = "Balanço Atual"
-        case .CreditCard:
+        case .Credito:
             underlineView.backgroundColor = .systemOrange
             balanceLabel.text = "Balanço Atual"
         case .Investimento:
-            underlineView.backgroundColor = .systemPurple
+            underlineView.backgroundColor = appColor5
             balanceLabel.text = "Valor"
         }
     }

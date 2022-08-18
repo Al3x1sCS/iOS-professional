@@ -81,7 +81,7 @@ extension AccountSummaryViewController {
     private func fetchData() {
         let savings = AccountSummaryCell.ViewModel(accountType: .Banco,
                                                     accountName: "Economia Básica")
-        let visa = AccountSummaryCell.ViewModel(accountType: .CreditCard,
+        let visa = AccountSummaryCell.ViewModel(accountType: .Credito,
                                                        accountName: "Cartão Visa Avion")
         let investment = AccountSummaryCell.ViewModel(accountType: .Investimento,
                                                        accountName: "Economia Tax-Free")

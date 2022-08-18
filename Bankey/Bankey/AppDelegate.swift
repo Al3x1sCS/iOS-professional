@@ -7,11 +7,11 @@
 
 import UIKit
 
-let appColor: UIColor = UIColor(red:150.0/255.0, green:66.0/255.0, blue:255/255.0, alpha: 1)
-let appColor2: UIColor = UIColor(red:0, green:128.0/255.0, blue:150.0/255.0, alpha: 1)
-let appColor3: UIColor = UIColor(red:0, green:159.0/255.0, blue:184.0/255.0, alpha: 1)
-let appColor4: UIColor = UIColor(red:120.0/255.0, green:36.0/255.0, blue:225.0/255.0, alpha: 1)
-let appColor5: UIColor = UIColor(red:94.0/255.0, green:0/255.0, blue:203.0/255.0, alpha: 1)
+let appColor: UIColor = UIColor(red:150.0/255.0, green:66.0/255.0, blue:255/255.0, alpha: 1) // ROXO CLARO
+let appColor2: UIColor = UIColor(red:0, green:128.0/255.0, blue:150.0/255.0, alpha: 1) // VERDE ESCURO
+let appColor3: UIColor = UIColor(red:0, green:159.0/255.0, blue:184.0/255.0, alpha: 1) // VERDE CLARO
+let appColor4: UIColor = UIColor(red:120.0/255.0, green:36.0/255.0, blue:225.0/255.0, alpha: 1) // ROXO MEDIO
+let appColor5: UIColor = UIColor(red:94.0/255.0, green:0/255.0, blue:203.0/255.0, alpha: 1) // ROXO ESCURO
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
