@@ -39,7 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = loginViewController
         
         mainViewController.selectedIndex = 1
-        
+//        UINavigationBar.appearance().isTranslucent = false
+//        UINavigationBar.appearance().backgroundColor = appColor
         
         return true
     }

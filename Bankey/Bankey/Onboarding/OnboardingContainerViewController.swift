@@ -101,7 +101,7 @@ class OnboardingContainerViewController: UIViewController {
         
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.setTitle("Concluir", for: [])
-        doneButton.tintColor = appColor2
+        doneButton.tintColor = appColor
         doneButton.addTarget(self, action: #selector(doneTapped), for: .primaryActionTriggered)
 
     }
