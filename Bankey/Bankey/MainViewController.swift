@@ -29,7 +29,7 @@ class MainViewController: UITabBarController {
         let moneyNC = UINavigationController(rootViewController: moneyVC)
         let moreNC = UINavigationController(rootViewController: moreVC)
 
-        summaryNC.navigationBar.barTintColor = appColor4
+        summaryNC.navigationBar.barTintColor = appColor
         hideNavigationBarLine(summaryNC.navigationBar)
         
         let tabBarList = [summaryNC, moneyNC, moreNC]
@@ -41,7 +41,6 @@ class MainViewController: UITabBarController {
         let img = UIImage()
         navigationBar.shadowImage = img
         navigationBar.setBackgroundImage(img, for: .default)
-        navigationBar.backgroundColor = appColor4
         navigationBar.isTranslucent = false
     }
     

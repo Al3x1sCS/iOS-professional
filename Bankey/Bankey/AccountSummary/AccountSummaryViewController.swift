@@ -80,14 +80,29 @@ extension AccountSummaryViewController: UITableViewDelegate {
 extension AccountSummaryViewController {
     private func fetchData() {
         let savings = AccountSummaryCell.ViewModel(accountType: .Banco,
-                                                    accountName: "Economia Básica")
+                                                            accountName: "Economias Básicas",
+                                                        balance: 929466.23)
+        let chequing = AccountSummaryCell.ViewModel(accountType: .Banco,
+                                                    accountName: "Cheque sem Taxa",
+                                                    balance: 17562.44)
         let visa = AccountSummaryCell.ViewModel(accountType: .Credito,
-                                                       accountName: "Cartão Visa Avion")
-        let investment = AccountSummaryCell.ViewModel(accountType: .Investimento,
-                                                       accountName: "Economia Tax-Free")
-
+                                                       accountName: "Cartão Visa",
+                                                       balance: 412.83)
+        let masterCard = AccountSummaryCell.ViewModel(accountType: .Credito,
+                                                       accountName: "Mastercard Estudante",
+                                                       balance: 50.83)
+        let investment1 = AccountSummaryCell.ViewModel(accountType: .Investimento,
+                                                       accountName: "Economias Tax-Free",
+                                                       balance: 2000.00)
+        let investment2 = AccountSummaryCell.ViewModel(accountType: .Investimento,
+                                                       accountName: "Fundo de Investimento",
+                                                       balance: 15000.00)
+        
         accounts.append(savings)
+        accounts.append(chequing)
         accounts.append(visa)
-        accounts.append(investment)
+        accounts.append(masterCard)
+        accounts.append(investment1)
+        accounts.append(investment2)
     }
 }
