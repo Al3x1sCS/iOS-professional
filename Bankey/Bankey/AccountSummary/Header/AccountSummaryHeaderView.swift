@@ -22,7 +22,7 @@ class AccountSummaryHeaderView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 144)
+        return CGSize(width: UIView.noIntrinsicMetric, height: 50)
     }
     
     private func commonInit() {

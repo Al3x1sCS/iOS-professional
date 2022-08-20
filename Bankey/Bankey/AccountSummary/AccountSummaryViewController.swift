@@ -14,6 +14,10 @@ class AccountSummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Bankey"
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
         setup()
     }
 }

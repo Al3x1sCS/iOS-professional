@@ -70,6 +70,7 @@ extension AccountSummaryCell {
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         typeLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         typeLabel.adjustsFontForContentSizeCategory = true
+        typeLabel.adjustsFontSizeToFitWidth = true
         typeLabel.text = "Tipo de conta"
         typeLabel.textColor = appColor5
         
@@ -79,6 +80,8 @@ extension AccountSummaryCell {
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.preferredFont(forTextStyle: .body)
+//        nameLabel.font = nameLabel.font.withSize(15)
+        nameLabel.adjustsFontForContentSizeCategory = true
         nameLabel.text = "Nome da conta"
         
         balanceStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,11 +90,13 @@ extension AccountSummaryCell {
         
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        balanceLabel.font = balanceLabel.font.withSize(15)
         balanceLabel.textAlignment = .right
         balanceLabel.text = "Balanço"
         
         balanceAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceAmountLabel.textAlignment = .right
+        balanceAmountLabel.adjustsFontSizeToFitWidth = true
         balanceAmountLabel.text = "XXX,XXX.XX"
         
         chevronImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -124,9 +129,9 @@ extension AccountSummaryCell {
     }
     
     private func makeFormattedBalance(dollars: String, cents: String) -> NSMutableAttributedString {
-        let dollarSignAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
+        let dollarSignAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 7]
         let dollarAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
-        let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote), .baselineOffset: 8]
+        let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote), .baselineOffset: 7]
         
         let rootString = NSMutableAttributedString(string: "$", attributes: dollarSignAttributes)
         let dollarString = NSAttributedString(string: dollars, attributes: dollarAttributes)
