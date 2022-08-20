@@ -41,7 +41,7 @@ struct CurrencyFormatter {
     func convertCents(_ centPart: Double) -> String {
         let cents: String
         if centPart == 0 {
-            cents = ",00"
+            cents = "00"
         } else {
             cents = String(format: "%.0f", centPart * 100)
         }
@@ -66,7 +66,7 @@ struct CurrencyFormatter {
     private func makeBalanceAttributed(dollars: String, cents: String) -> NSMutableAttributedString {
         let dollarSignAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
         let dollarAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
-        let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 1]
+        let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
         
         let rootString = NSMutableAttributedString(string: "R", attributes: dollarSignAttributes)
         let dollarString = NSAttributedString(string: dollars, attributes: dollarAttributes)
