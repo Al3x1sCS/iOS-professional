@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - LoginView
 class LoginView: UIView {
     
     let stackView = UIStackView()
@@ -24,32 +25,33 @@ class LoginView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) não foi implementado")
     }
-//    override var intrinsicContentSize: CGSize { // <- Este metodo não e mais preciso pois ja foi especificado no stack.
-//        return CGSize(width: 200, height: 200)
-//    }
 }
 
 extension LoginView {
     
+    // MARK: - Style
     func style() {
         // * translatesAutoresizingMaskIntoConstraints para false para desativar o comportamento padrão.
         translatesAutoresizingMaskIntoConstraints = false // <- nunca esquecer esta linha.
         backgroundColor = .secondarySystemBackground
         
+        // MARK: stackView
         stackView.translatesAutoresizingMaskIntoConstraints = false // <- nunca esquecer esta linha.
         stackView.axis = .vertical
         stackView.spacing = 8
         
+        // MARK: usernameTextField
         usernameTextField.translatesAutoresizingMaskIntoConstraints = false // <- nunca esquecer.
         usernameTextField.placeholder = "Usuário"
         usernameTextField.delegate = self // <- O TextField vai enviar mensagens através deste protocolo.
         
+        // MARK: passwordTextField
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false // <- nunca esquecer.
         passwordTextField.placeholder = "Senha"
         passwordTextField.isSecureTextEntry = true
         passwordTextField.delegate = self
         
-        
+        // MARK: dividerView
         dividerView.translatesAutoresizingMaskIntoConstraints = false // <- nunca.
         dividerView.backgroundColor = .secondarySystemFill
         
@@ -57,14 +59,15 @@ extension LoginView {
         clipsToBounds = true
     }
     
+    // MARK: - Layout
     func layout() {
         stackView.addArrangedSubview(usernameTextField)
         stackView.addArrangedSubview(dividerView)
         stackView.addArrangedSubview(passwordTextField)
         
-        
         addSubview(stackView) // // <- nunca esquecer.
         
+        // MARK: stackView
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
@@ -72,6 +75,7 @@ extension LoginView {
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
         ])
         
+        // MARK: dividerView
         dividerView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 }

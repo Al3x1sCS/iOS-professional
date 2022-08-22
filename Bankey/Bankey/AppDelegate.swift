@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: Tema
 let appColor: UIColor = UIColor(red:150.0/255.0, green:66.0/255.0, blue:255/255.0, alpha: 1) // ROXO CLARO
 let appColor2: UIColor = UIColor(red:0, green:128.0/255.0, blue:150.0/255.0, alpha: 1) // VERDE ESCURO
 let appColor3: UIColor = UIColor(red:0, green:159.0/255.0, blue:184.0/255.0, alpha: 1) // VERDE CLARO
@@ -15,7 +16,7 @@ let appColor5: UIColor = UIColor(red:94.0/255.0, green:0/255.0, blue:203.0/255.0
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     let loginViewController = LoginViewController()
@@ -31,18 +32,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController.delegate = self
         onboardingViewController.delegate = self
         
-        let vc = mainViewController
-        vc.setStatusBar()
-
+        displayLogin()
+        
+        return true
+    }
+    
+    // MARK: - displayLogin
+    private func displayLogin() {
+        setRootViewController(loginViewController)
+    }
+    
+    // MARK: displayNextScreen
+    private func displayNextScreen() {
+        if LocalState.hasOnboarded {
+            prepMainView()
+            setRootViewController(mainViewController)
+        } else {
+            setRootViewController(onboardingViewController)
+        }
+    }
+    
+    // MARK: prepMainView
+    private func prepMainView() {
+        mainViewController.setStatusBar()
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().backgroundColor = appColor
-            
-        window?.rootViewController = vc
-            
-        return true
     }
 }
 
+// MARK: - Extensions
 extension AppDelegate {
     func setRootViewController(_ vc: UIViewController, animated: Bool = true) {
         guard animated, let window = self.window else {
@@ -50,7 +68,7 @@ extension AppDelegate {
             self.window?.makeKeyAndVisible()
             return
         }
-
+        
         window.rootViewController = vc
         window.makeKeyAndVisible()
         UIView.transition(with: window,
@@ -61,23 +79,23 @@ extension AppDelegate {
     }
 }
 
+// MARK: didLogin
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didLogin() {
-        if LocalState.hasOnboarded {
-            setRootViewController(mainViewController)
-        } else {
-            setRootViewController(onboardingViewController)
-        }
+        displayNextScreen()
     }
 }
 
+// MARK: didFinishOnboarding
 extension AppDelegate: LoginViewControllerDelegate {
     func didFinishOnboarding() {
         LocalState.hasOnboarded = true
+        prepMainView()
         setRootViewController(mainViewController)
     }
 }
 
+// MARK: didLogout
 extension AppDelegate: LogoutDelegate {
     func didLogout() {
         setRootViewController(loginViewController)

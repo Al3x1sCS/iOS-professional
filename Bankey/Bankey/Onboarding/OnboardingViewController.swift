@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - OnboardingViewController
 class OnboardingViewController: UIViewController {
     
     let stackView = UIStackView()
@@ -16,6 +17,7 @@ class OnboardingViewController: UIViewController {
     let heroImageName: String
     let titleText: String
     
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -34,20 +36,25 @@ class OnboardingViewController: UIViewController {
     }
 }
 
+// MARK: - OnboardingViewController
 extension OnboardingViewController {
+    
+    
+    // MARK: - Style
     func style() {
         view.backgroundColor = .white
         
+        // MARK: stackView
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 20
         
-        // Image
+        // MARK: imageView
         imageView.translatesAutoresizingMaskIntoConstraints = false // <- NUNCA ESQUECER!
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: heroImageName)
         
-        // Label
+        // MARK: label
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .title3)
@@ -56,12 +63,14 @@ extension OnboardingViewController {
         label.text = titleText
     }
     
+    // MARK: - Layout
     func layout() {
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(label)
         
         view.addSubview(stackView)
         
+        // MARK: stackView
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

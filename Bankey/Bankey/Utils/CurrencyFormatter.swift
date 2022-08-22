@@ -14,7 +14,7 @@ struct CurrencyFormatter {
         return makeBalanceAttributed(dollars: tuple.0, cents: tuple.1)
     }
     
-    // Converts 929466.23 > "929.466" "23"
+    // MARK: Converts 929466.23 > "929.466" "23"
     func breakIntoDollarsAndCents(_ amount: Decimal) -> (String, String) {
         let tuple = modf(amount.doubleValue)
         
@@ -24,7 +24,7 @@ struct CurrencyFormatter {
         return (dollars, cents)
     }
     
-    // Converts 929466 > 929,466
+    // MARK: Converts 929466 > 929.466
     func convertDollar(_ dollarPart: Double) -> String {
         let dollarsWithDecimal = dollarsFormatted(dollarPart) // "R$929.466,00"
         let formatter = NumberFormatter()
@@ -37,7 +37,7 @@ struct CurrencyFormatter {
         return dollars
     }
     
-    // Convert 0.23 > 23
+    // MARK: Convert 0.23 > 23
     func convertCents(_ centPart: Double) -> String {
         let cents: String
         if centPart == 0 {
@@ -48,7 +48,7 @@ struct CurrencyFormatter {
         return cents
     }
     
-    // Converts 929466 > $929,466.00
+    // MARK: Converts 929466 > $929,466.00
     func dollarsFormatted(_ dollars: Double) -> String {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "pt_BR")
@@ -63,6 +63,7 @@ struct CurrencyFormatter {
         return ""
     }
     
+    // MARK: Make Balance Attributed
     private func makeBalanceAttributed(dollars: String, cents: String) -> NSMutableAttributedString {
         let dollarSignAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
         let dollarAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]

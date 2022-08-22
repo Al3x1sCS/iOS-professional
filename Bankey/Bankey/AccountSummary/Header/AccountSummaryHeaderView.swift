@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - AccountSummaryHeaderV
 class AccountSummaryHeaderView: UIView {
     
     @IBOutlet var contentView: UIView!
@@ -21,10 +22,12 @@ class AccountSummaryHeaderView: UIView {
         commonInit()
     }
     
+    // MARK: intrinsic ContentSize
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 50)
     }
     
+    // MARK: common Init
     private func commonInit() {
         let bundle = Bundle(for: AccountSummaryHeaderView.self)
         bundle.loadNibNamed("AccountSummaryHeaderView", owner: self, options: nil)

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - protocols
 protocol LogoutDelegate: AnyObject {
     func didLogout()
 }
@@ -15,12 +16,16 @@ protocol LoginViewControllerDelegate: AnyObject {
     func didLogin()
 }
 
+// MARK: - LoginViewController
 class LoginViewController: UIViewController {
-    // Onboarding
+    
+    
+    // MARK: Onboarding
     let delorianLabel = UILabel()
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
-    // Login
+    
+    // MARK: Login
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
@@ -50,12 +55,16 @@ extension LoginViewController {
     
     // MARK: - STYLE
     private func style() {
+        
+        
+        // MARK: titleLabel
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.text = "Bankey"
 
+        // MARK: subtitleLabel
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.textAlignment = .center
         subtitleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
@@ -63,8 +72,10 @@ extension LoginViewController {
         subtitleLabel.numberOfLines = 0
         subtitleLabel.text = "Sua experiência premium para todas as suas contas bancárias!"
         
+        // MARK: loginView
         loginView.translatesAutoresizingMaskIntoConstraints = false // <- nunca esquecer.
         
+        // MARK: signInButton
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.configuration = .filled()
         signInButton.configuration?.imagePadding = 8 // <- Para indicar o espaçamento
@@ -72,6 +83,7 @@ extension LoginViewController {
         signInButton.tintColor = appColor
         signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
         
+        // MARK: errorMessageLabel
         errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
         errorMessageLabel.textAlignment = .center
         errorMessageLabel.textColor = .systemRed
@@ -88,34 +100,34 @@ extension LoginViewController {
         view.addSubview(errorMessageLabel)
         
         
-        // Title
+        // MARK: titleLabel
         NSLayoutConstraint.activate([ // <- Isso define isActive como true para todas as constraints.
             subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
             
-        // Subtitle
+        // MARK: subtitleLabel
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
             subtitleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
         
-        // LoginView
+        // MARK: loginView
         NSLayoutConstraint.activate([
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
         ])
         
-        // Button
+        // MARK: signInButton
         NSLayoutConstraint.activate([
             signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2),
             signInButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             signInButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
         
-        // ErrorLabel
+        // MARK: errorMessageLabel
         NSLayoutConstraint.activate([
             errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
             errorMessageLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
@@ -130,16 +142,12 @@ extension LoginViewController {
         login()
     }
     
+    // MARK: login
     private func login() {
         guard let username = username, let password = password else {
             assertionFailure("Usuário / Senha nunca pode ser nulos")
             return
         }
-        
-//        if username.isEmpty || password.isEmpty {
-//            configureView(withMessage: "Usuário / Senha nao podem estar em branco")
-//            return
-//        }
         
         if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true

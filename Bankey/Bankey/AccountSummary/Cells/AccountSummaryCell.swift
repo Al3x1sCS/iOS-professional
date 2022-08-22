@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - AccountSummaryCell
 class AccountSummaryCell: UITableViewCell {
     
     enum AccountType: String {
@@ -67,6 +68,7 @@ extension AccountSummaryCell {
         
         contentView.addSubview(chevronImageView)
         
+        // MARK: typeLabel
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         typeLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         typeLabel.adjustsFontForContentSizeCategory = true
@@ -74,20 +76,24 @@ extension AccountSummaryCell {
         typeLabel.text = "Tipo de conta"
         typeLabel.textColor = appColor5
         
+        // MARK: underlineView
         underlineView.translatesAutoresizingMaskIntoConstraints = false
         underlineView.backgroundColor = appColor5
         underlineView.layer.cornerRadius = 4
         
+        // MARK: nameLabel
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.preferredFont(forTextStyle: .body)
         nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.adjustsFontForContentSizeCategory = true
         nameLabel.text = "Nome da conta"
         
+        // MARK: balanceStackView
         balanceStackView.translatesAutoresizingMaskIntoConstraints = false
         balanceStackView.axis = .vertical
         balanceStackView.spacing = 0
         
+        // MARK: balanceLabel
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceLabel.font = UIFont.preferredFont(forTextStyle: .body)
         balanceLabel.font = balanceLabel.font.withSize(17)
@@ -95,11 +101,13 @@ extension AccountSummaryCell {
         balanceLabel.textAlignment = .right
         balanceLabel.text = "Balanço"
         
+        // MARK: balanceAmountLabel
         balanceAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceAmountLabel.textAlignment = .right
         balanceAmountLabel.adjustsFontSizeToFitWidth = true
         balanceAmountLabel.text = "XXX,XXX.XX"
         
+        // MARK: chevronImageView
         chevronImageView.translatesAutoresizingMaskIntoConstraints = false
         let chevronImage = UIImage(systemName: "chevron.right.circle.fill")!.withTintColor(appColor2, renderingMode: .alwaysOriginal)
         chevronImageView.image = chevronImage
@@ -108,27 +116,34 @@ extension AccountSummaryCell {
     // MARK: - LAYOUT
     private func layout() {
         NSLayoutConstraint.activate([
+            
+            // MARK: typeLabel
             typeLabel.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 2),
             typeLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
             
+            // MARK: underlineView
             underlineView.topAnchor.constraint(equalToSystemSpacingBelow: typeLabel.bottomAnchor, multiplier: 1),
             underlineView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
             underlineView.widthAnchor.constraint(equalToConstant: 75),
             underlineView.heightAnchor.constraint(equalToConstant: 3),
             
+            // MARK: nameLabel
             nameLabel.topAnchor.constraint(equalToSystemSpacingBelow: underlineView.bottomAnchor, multiplier: 2),
             nameLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
             
+            // MARK: balanceStackView
             balanceStackView.topAnchor.constraint(equalToSystemSpacingBelow: underlineView.bottomAnchor, multiplier: 0),
             balanceStackView.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 4),
             trailingAnchor.constraint(equalToSystemSpacingAfter: balanceStackView.trailingAnchor, multiplier: 5),
             
+            // MARK: chevronImageView
             chevronImageView.topAnchor.constraint(equalToSystemSpacingBelow: underlineView.bottomAnchor, multiplier: 1),
             trailingAnchor.constraint(equalToSystemSpacingAfter: chevronImageView.trailingAnchor, multiplier: 1)
         ])
         
     }
     
+    // MARK: Make Formatted Balance
     private func makeFormattedBalance(dollars: String, cents: String) -> NSMutableAttributedString {
         let dollarSignAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 7]
         let dollarAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
@@ -145,6 +160,7 @@ extension AccountSummaryCell {
     }
 }
 
+// MARK: Configuration
 extension AccountSummaryCell {
     func configure(with vm: ViewModel) {
         typeLabel.text = vm.accountType.rawValue

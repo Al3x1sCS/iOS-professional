@@ -7,10 +7,12 @@
 
 import UIKit
 
+// MARK: - protocols
 protocol OnboardingContainerViewControllerDelegate: AnyObject {
     func didFinishOnboarding()
 }
 
+// MARK: - OnboardingContainerVC
 class OnboardingContainerViewController: UIViewController {
 
     let pageViewController: UIPageViewController
@@ -37,8 +39,15 @@ class OnboardingContainerViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
+        // MARK: Page 1
         let page1 = OnboardingViewController(heroImageName: "delorean", titleText: "Bankey é mais rápido, mais fácil de usar e tem uma aparência totalmente inovadora que fará você se sentir como se estivesse de volta a 1989.")
+        
+        
+        // MARK: Page 2
         let page2 = OnboardingViewController(heroImageName: "world", titleText: "Mova seu dinheiro pelo mundo com rapidez e segurança.")
+        
+        
+        // MARK: Page 3
         let page3 = OnboardingViewController(heroImageName: "thumbs", titleText: "Saiba mais em www.bankey.com.")
         
         pages.append(page1)
@@ -62,6 +71,7 @@ class OnboardingContainerViewController: UIViewController {
         layout()
     }
     
+    // MARK: - Setup
     private func setup() {
         view.backgroundColor = appColor
         
@@ -72,6 +82,7 @@ class OnboardingContainerViewController: UIViewController {
         pageViewController.dataSource = self
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
+        // MARK: pageViewController
         NSLayoutConstraint.activate([
             view.topAnchor.constraint(equalTo: pageViewController.view.topAnchor),
             view.leadingAnchor.constraint(equalTo: pageViewController.view.leadingAnchor),
@@ -82,64 +93,70 @@ class OnboardingContainerViewController: UIViewController {
         pageViewController.setViewControllers([pages.first!], direction: .forward, animated: false, completion: nil)
         currentVC = pages.first!
     }
-    
+    // MARK: - Style
     private func style() {
+        
+        
+        // MARK: nextButton
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.setTitle("Próximo", for: [])
         nextButton.tintColor = appColor2
         nextButton.addTarget(self, action: #selector(nextTapped), for: .primaryActionTriggered)
         
+        // MARK: backButton
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.setTitle("Voltar", for: [])
         backButton.tintColor = appColor2
         backButton.addTarget(self, action: #selector(backTapped), for: .primaryActionTriggered)
         
+        // MARK: closeButton
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.setTitle("Fechar", for: [])
         closeButton.tintColor = appColor2
         closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
         
+        // MARK: doneButton
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.setTitle("Concluir", for: [])
-        doneButton.tintColor = appColor
+        doneButton.tintColor = appColor2
         doneButton.addTarget(self, action: #selector(doneTapped), for: .primaryActionTriggered)
 
     }
-    
+    // MARK: - Layout
     private func layout() {
         view.addSubview(nextButton)
         view.addSubview(backButton)
         view.addSubview(closeButton)
         view.addSubview(doneButton)
         
-        // Next
+        // MARK: nextButton
         NSLayoutConstraint.activate([
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 2),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.bottomAnchor, multiplier: 4)
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.bottomAnchor, multiplier: 10)
         ])
         
-        // Back
+        // MARK: backButton
         NSLayoutConstraint.activate([
             backButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: backButton.bottomAnchor, multiplier: 4)
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: backButton.bottomAnchor, multiplier: 10)
         ])
         
-        // Close
+        // MARK: closeButton
         NSLayoutConstraint.activate([
             closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
         ])
         
-        // Done
+        // MARK: doneButton
         NSLayoutConstraint.activate([
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: doneButton.trailingAnchor, multiplier: 2),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: doneButton.bottomAnchor, multiplier: 4)
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: doneButton.bottomAnchor, multiplier: 10)
         ])
         
     }
 }
 
-// MARK: - UIPageViewControllerDataSource
+// MARK: - DataSource
 extension OnboardingContainerViewController: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
