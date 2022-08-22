@@ -54,7 +54,7 @@ class AccountSummaryCell: UITableViewCell {
 }
 
 extension AccountSummaryCell {
-    
+    //MARK: - SETUP
     private func setup() {
         contentView.addSubview(typeLabel)
         contentView.addSubview(underlineView)
@@ -80,7 +80,7 @@ extension AccountSummaryCell {
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.preferredFont(forTextStyle: .body)
-//        nameLabel.font = nameLabel.font.withSize(15)
+        nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.adjustsFontForContentSizeCategory = true
         nameLabel.text = "Nome da conta"
         
@@ -90,7 +90,8 @@ extension AccountSummaryCell {
         
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        balanceLabel.font = balanceLabel.font.withSize(15)
+        balanceLabel.font = balanceLabel.font.withSize(17)
+        balanceLabel.adjustsFontSizeToFitWidth = true
         balanceLabel.textAlignment = .right
         balanceLabel.text = "Balanço"
         
@@ -104,7 +105,7 @@ extension AccountSummaryCell {
         chevronImageView.image = chevronImage
         
     }
-    
+    // MARK: - LAYOUT
     private func layout() {
         NSLayoutConstraint.activate([
             typeLabel.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 2),
