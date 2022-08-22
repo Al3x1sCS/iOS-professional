@@ -7,8 +7,11 @@
 
 import UIKit
 
+// MARK: - UIViewController
 extension UIViewController {
     
+    
+    // MARK: setStatusBar
     func setStatusBar() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithTransparentBackground()
@@ -20,7 +23,7 @@ extension UIViewController {
 
     }
     
-    
+    // MARK: setTabBarImage
     func setTabBarImage(imageName: String, title: String) {
         let configuration = UIImage.SymbolConfiguration(scale: .large)
         let image = UIImage(systemName: imageName, withConfiguration: configuration)
