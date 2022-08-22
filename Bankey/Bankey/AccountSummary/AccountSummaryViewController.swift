@@ -13,6 +13,12 @@ class AccountSummaryViewController: UIViewController {
     var accounts: [AccountSummaryCell.ViewModel] = []
     var tableView = UITableView()
     
+    lazy var logoutBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Sair", style: .plain, target: self, action: #selector(logoutTapped))
+        barButtonItem.tintColor = .white
+        return barButtonItem
+    }()
+    
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +27,11 @@ class AccountSummaryViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         setup()
+        setupNavigationBar()
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = logoutBarButtonItem
     }
 }
 
@@ -50,7 +61,7 @@ extension AccountSummaryViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
-    // MARK: - Layout
+        // MARK: - Layout
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -120,5 +131,12 @@ extension AccountSummaryViewController {
         accounts.append(masterCard)
         accounts.append(investment1)
         accounts.append(investment2)
+    }
+}
+
+// MARK: Actions
+extension AccountSummaryViewController {
+    @objc func logoutTapped(sender: UIButton) {
+        NotificationCenter.default.post(name: .logout, object: nil)
     }
 }
