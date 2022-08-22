@@ -144,14 +144,17 @@ extension LoginViewController {
     
     // MARK: login
     private func login() {
-        guard let username = username, let password = password else {
-            assertionFailure("Usuário / Senha nunca pode ser nulos")
-            return
-        }
+        
+//        guard let username = username, let password = password else {
+//            assertionFailure("Usuário / Senha nunca pode ser nulos")
+//            return
+//        }
         
         if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
+        } else if username == "" && password == "" {
+            configureView(withMessage: "Usuário / Senha não pode estar vazio.")
         } else {
             configureView(withMessage: "Usuário ou senha incorreta")
         }
