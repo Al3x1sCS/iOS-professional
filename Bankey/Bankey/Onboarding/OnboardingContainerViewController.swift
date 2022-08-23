@@ -40,15 +40,15 @@ class OnboardingContainerViewController: UIViewController {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
         // MARK: Page 1
-        let page1 = OnboardingViewController(heroImageName: "delorean", titleText: "Bankey é mais rápido, mais fácil de usar e tem uma aparência totalmente inovadora que fará você se sentir como se estivesse de volta a 1989.")
+        let page1 = OnboardingViewController(heroImageName: "inovation", titleText: "Bankey é mais rápido, mais fácil de usar e tem uma aparência totalmente inovadora que fará você se sentir em um mundo digital")
         
         
         // MARK: Page 2
-        let page2 = OnboardingViewController(heroImageName: "world", titleText: "Mova seu dinheiro pelo mundo com rapidez e segurança.")
+        let page2 = OnboardingViewController(heroImageName: "safety", titleText: "Mova seu dinheiro pelo mundo com rapidez e segurança do conforto de sua casa.")
         
         
         // MARK: Page 3
-        let page3 = OnboardingViewController(heroImageName: "thumbs", titleText: "Saiba mais em www.bankey.com.")
+        let page3 = OnboardingViewController(heroImageName: "website", titleText: "Saiba mais sobre esse mundo de possibilidades em www.bankey.com")
         
         pages.append(page1)
         pages.append(page2)

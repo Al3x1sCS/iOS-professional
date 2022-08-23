@@ -11,6 +11,7 @@ import XCTest
 
 @testable import Bankey
 
+// MARK: - Testando o caminho feliz
 class FormatadorDeMoedaTests: XCTestCase {
     var formatador: CurrencyFormatter!
     
