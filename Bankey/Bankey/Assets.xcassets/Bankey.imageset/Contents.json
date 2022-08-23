@@ -1,6 +1,9 @@
 {
   "images" : [
-
+    {
+      "filename" : "Bankey.pdf",
+      "idiom" : "universal"
+    }
   ],
   "info" : {
     "author" : "xcode",

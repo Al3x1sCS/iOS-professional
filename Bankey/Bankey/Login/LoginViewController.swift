@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
         return loginView.passwordTextField.text
     }
 
-    // MARK: Animation
+    // MARK: Constraint Animation
     var leadingEdgeOnScreen: CGFloat = 16
     var leadingEdgeOffScreen: CGFloat = -1000
 
