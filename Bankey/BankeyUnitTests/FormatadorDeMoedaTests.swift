@@ -22,7 +22,7 @@ class FormatadorDeMoedaTests: XCTestCase {
     
     func testReaisFormatados() throws {
         let result = formatador.dollarsFormatted(929466.23)
-                XCTAssertEqual(result, "R$ 929.466,23")
+        XCTAssertEqual(result, "R$ 929.466,23")
     }
     
     func testQuebrarReaisEmCentavos() throws {
@@ -31,13 +31,13 @@ class FormatadorDeMoedaTests: XCTestCase {
         XCTAssertEqual(result.1, "23")
     }
     
-
+    
     
     func testFormatarZeroReais() throws {
         let result = formatador.dollarsFormatted(0.00)
-                XCTAssertEqual(result, "R$ 0,00")
+        XCTAssertEqual(result, "R$ 0,00")
     }
-        
+    
 }
 
 

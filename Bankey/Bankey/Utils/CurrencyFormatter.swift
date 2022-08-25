@@ -14,16 +14,6 @@ struct CurrencyFormatter {
         return makeBalanceAttributed(dollars: tuple.0, cents: tuple.1)
     }
     
-    // MARK: Converts 929466.23 > "929.466" "23"
-    func breakIntoDollarsAndCents(_ amount: Decimal) -> (String, String) {
-        let tuple = modf(amount.doubleValue)
-        
-        let dollars = convertDollar(tuple.0)
-        let cents = convertCents(tuple.1)
-        
-        return (dollars, cents)
-    }
-    
     // MARK: Converts 929466 > 929.466
     func convertDollar(_ dollarPart: Double) -> String {
         let dollarsWithDecimal = dollarsFormatted(dollarPart) // "R$929.466,00"
@@ -46,6 +36,16 @@ struct CurrencyFormatter {
             cents = String(format: "%.0f", centPart * 100)
         }
         return cents
+    }
+    
+    // MARK: Converts 929466.23 > "929.466" "23"
+    func breakIntoDollarsAndCents(_ amount: Decimal) -> (String, String) {
+        let tuple = modf(amount.doubleValue)
+        
+        let dollars = convertDollar(tuple.0)
+        let cents = convertCents(tuple.1)
+        
+        return (dollars, cents)
     }
     
     // MARK: Converts 929466 > $929,466.00
