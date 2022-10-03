@@ -163,7 +163,7 @@ extension LoginViewController {
     // MARK: login
     private func login() {
         
-        if username == "Alexis" && password == "123456" {
+        if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
         } else if username == "" && password == "" {
